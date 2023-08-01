@@ -66,9 +66,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'src.pipelines.mysql.MySQLPipeline': 300,
-}
+# ITEM_PIPELINES = {
+#    'src.pipelines.mysql.MySQLPipeline': 300,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -90,3 +90,18 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# ITEM_PIPELINES = {
+#     'src.pipelines.postgres.PostgresPipeline': 300,  # Adjust the priority (lower number means higher priority)
+# }
+
+POSTGRES_SETTINGS = {
+    'dbname': 'stocks_scrapy',
+    'user': 'postgres',
+    'password': '####XXX',
+    'host': 'localhost',  # Change to your PostgreSQL host
+    'port': '5432',      # Change to your PostgreSQL port
+}
+
+# Optional: If you want to specify a custom table name (defaults to 'scrapy_data')
+#POSTGRES_TABLE_NAME = 'your_table_name'
